@@ -36,11 +36,13 @@ const uploads = path.join(`${__dirname}/../frontend/upload/`);
 app.post("/", (req, res) => {
     // Upload image
     const picture = req.files.picture;
+    const answer = {}
     if (picture) {
         console.dir(picture);
         picture.mv(uploads + "profile.jpg");
     }
-    res.send("juhuuuu")
+    answer.pictureRoute = "Profile.jpg"
+    res.send(answer)
 
     // Upload data from form
     const formData = req.body;
